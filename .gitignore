@@ -1,0 +1,35 @@
+# Virtual environment
+.venv/
+venv/
+
+# Environment variables
+.env
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Streamlit
+.streamlit/
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Generated files
+*.log
+*.tmp
+
+# Test coverage
+.coverage
+htmlcov/
+
+# Generated documents
+legalease_document.txt
+legalease_document.docx
+legalease_document.pdf
