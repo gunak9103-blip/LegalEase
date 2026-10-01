@@ -1,21 +1,18 @@
 import os
 
 from dotenv import load_dotenv
-
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from backend.routes import router
-
 
 load_dotenv(override=True)
 
 app = FastAPI(
     title="LegalEase API",
     description="AI-powered legal-document generation API.",
-    version="1.0.0",
+    version="1.0.1",
 )
-
 
 origins = [
     item.strip()
@@ -26,7 +23,6 @@ origins = [
     if item.strip()
 ]
 
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -35,18 +31,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
 app.include_router(router)
 
 
 @app.get("/")
 def root():
-
     return {
-        "name": os.getenv(
-            "APP_NAME",
-            "LegalEase",
-        ),
+        "name": os.getenv("APP_NAME", "LegalEase"),
         "message": "LegalEase API is running.",
         "docs": "/docs",
     }
@@ -54,12 +45,9 @@ def root():
 
 @app.get("/health")
 def health():
-
     return {
         "status": "ok",
-        "gemini_configured": bool(
-            os.getenv("GEMINI_API_KEY")
-        ),
+        "gemini_configured": bool(os.getenv("GEMINI_API_KEY")),
         "model": os.getenv(
             "GEMINI_MODEL",
             "gemini-2.5-flash",
