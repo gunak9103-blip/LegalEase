@@ -1,47 +1,66 @@
 # LegalEase ⚖️
 
-LegalEase is an AI-powered legal document drafting application.
+LegalEase is an AI-powered legal document drafting application that helps users generate structured legal document drafts from user-provided information.
 
-It uses:
+It combines a Streamlit frontend, FastAPI backend, and Google Gemini for AI-assisted document generation, with editable previews and branded document exports.
 
-- Streamlit for the frontend
-- FastAPI for the backend
-- Google Gemini for AI-assisted drafting
-- python-docx for DOCX exports
-- fpdf2 for PDF exports
+> **Disclaimer:** LegalEase generates AI-assisted document drafts for informational and drafting purposes. Documents should be reviewed by a qualified legal professional before use.
 
-## Features
+## 🚀 Live Demo
 
-- Legal document draft generation
+**Frontend:**  
+https://legalease-frontend-w4gl.onrender.com
+
+**Backend API:**  
+https://legalease-backend-v2.onrender.com
+
+**API Documentation:**  
+https://legalease-backend-v2.onrender.com/docs
+
+## ✨ Features
+
+- AI-assisted legal document drafting with Google Gemini
 - Editable document preview
 - TXT export
 - DOCX export
 - PDF export
-- Optional branding and logo
+- Optional company branding and logo
 - FastAPI REST API
-- Basic automated tests
+- Streamlit frontend
+- Automated tests with pytest
 - Docker support
-- Render deployment configuration
+- Render deployment
 
-## Project Structure
+## 🛠️ Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| Python | Application development |
+| Streamlit | Frontend UI |
+| FastAPI | Backend REST API |
+| Google Gemini | AI document generation |
+| Pydantic | Request validation |
+| python-docx | DOCX generation |
+| fpdf2 | PDF generation |
+| Pillow | Logo/image handling |
+| Requests | Frontend-backend communication |
+| Pytest | Automated testing |
+| Docker | Containerization |
+| Render | Cloud deployment |
+| Git/GitHub | Version control |
+
+## 🏗️ Architecture
 
 ```text
-LegalEase
-│
-├── ai_core/
-├── assets/
-├── backend/
-├── document_utils/
-├── frontend/
-├── tests/
-│
-├── .env
-├── .env.example
-├── .gitignore
-├── Dockerfile
-├── docker-compose.yml
-├── Makefile
-├── Procfile
-├── render.yaml
-├── requirements.txt
-└── README.md
+User
+ │
+ ▼
+Streamlit Frontend
+ │
+ │ HTTP REST API
+ ▼
+FastAPI Backend
+ │
+ │ Gemini API
+ ▼
+Google Gemini
